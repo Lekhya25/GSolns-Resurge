@@ -1,8 +1,15 @@
 import 'package:resurge2/data/menu_items.dart';
 import 'package:resurge2/model/menu_item.dart';
+import 'package:resurge2/page/jobs.dart';
+import 'package:resurge2/page/mentorship.dart';
+import 'package:resurge2/page/messaging.dart';
+import 'package:resurge2/page/personal.dart';
+import 'package:resurge2/page/resources.dart';
+import 'package:resurge2/page/usersupport.dart';
 import 'package:resurge2/provider/menubar_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:resurge2/page/courses.dart';
 
 class NavigationDrawerWidget extends StatelessWidget {
   final padding = EdgeInsets.symmetric(horizontal: 20);
@@ -66,12 +73,12 @@ class NavigationDrawerWidget extends StatelessWidget {
             isCollapsed: isCollapsed,
             text: item.title,
             icon: item.icon,
-            // onClicked: () => selectItem(context, indexOffset + index),
+            onClicked: () => selectItem(context, indexOffset + index),
           );
         },
       );
 
-/*
+
   void selectItem(BuildContext context, int index) {
     final navigateTo = (page) => Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => page,
@@ -81,25 +88,26 @@ class NavigationDrawerWidget extends StatelessWidget {
 
     switch (index) {
       case 0:
-        navigateTo(GetStartedPage());
+        navigateTo(PersonalDatailsPage());
         break;
       case 1:
-        navigateTo(SamplesPage());
+        navigateTo(CoursePage());
         break;
       case 2:
-        navigateTo(TestingPage());
+        navigateTo(JobPage());
         break;
       case 3:
-        navigateTo(PerformancePage());
+        navigateTo(MentorshipPage());
         break;
       case 4:
-        navigateTo(DeploymentPage());
+        navigateTo(ResourcePage());
         break;
       case 5:
-        navigateTo(ResourcesPage());
+        navigateTo(MessagingPage());
         break;
+      case 6:
+        navigateTo(UserSupportPage());
     }
-*/
   }
 
   Widget buildMenuItem({
@@ -182,3 +190,4 @@ class NavigationDrawerWidget extends StatelessWidget {
           height: 48, // Adjust the height as needed
           width: 48,  // Adjust the width as needed
         );
+}
