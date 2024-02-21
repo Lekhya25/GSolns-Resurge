@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
-
 class CoursePage extends StatefulWidget {
   @override
-   Widget build(BuildContext context) => Scaffold(
+  Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
           title: Text('Courses'),
           centerTitle: true,
@@ -15,7 +14,12 @@ class CoursePage extends StatefulWidget {
 
 class _CoursePageState extends State<CoursePage> {
   List<String> subjects = ['Math', 'Science', 'History', 'English'];
-  List<String> popularCourses = ['Course 1', 'Course 2', 'Course 3', 'Course 4'];
+  List<String> popularCourses = [
+    'Course 1',
+    'Course 2',
+    'Course 3',
+    'Course 4'
+  ];
 
   @override
   Widget build(BuildContext context) {
