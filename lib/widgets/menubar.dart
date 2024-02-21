@@ -78,7 +78,6 @@ class NavigationDrawerWidget extends StatelessWidget {
         },
       );
 
-
   void selectItem(BuildContext context, int index) {
     final navigateTo = (page) => Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => page,
@@ -88,7 +87,7 @@ class NavigationDrawerWidget extends StatelessWidget {
 
     switch (index) {
       case 0:
-        navigateTo(PersonalDatailsPage());
+        navigateTo(PersonalDetailsPage());
         break;
       case 1:
         navigateTo(CoursePage());
@@ -183,11 +182,11 @@ class NavigationDrawerWidget extends StatelessWidget {
       ? Image.asset(
           'assets/images/App_logo-_Long-2-removebg-preview.png', // Replace with the actual path to your image
           height: 48, // Adjust the height as needed
-          width: 48,  // Adjust the width as needed
+          width: 48, // Adjust the width as needed
         )
       : Image.asset(
           'assets/images/App_logo-_Long-2-removebg-preview.png', // Replace with the actual path to your image
           height: 48, // Adjust the height as needed
-          width: 48,  // Adjust the width as needed
+          width: 48, // Adjust the width as needed
         );
 }
