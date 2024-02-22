@@ -37,3 +37,6 @@ Before you begin, ensure you have the following installed on your system:
 
 Select the desired platform option when prompted, such as Chrome or Edge for web, or use an Android emulator for mobile platforms.
 
+### checkout our linkedin page
+
+[ https://www.linkedin.com/company/resurge-app/ ]
