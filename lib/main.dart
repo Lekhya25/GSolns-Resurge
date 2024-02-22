@@ -1,3 +1,4 @@
+import 'package:resurge2/page/home.dart';
 import 'package:resurge2/provider/menubar_provider.dart';
 import 'package:resurge2/widgets/menubar.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
             fontFamily: 'CustomIcons',
           ),
-          home: MainPage(),
+          home: Home(),
         ),
       );
 }

@@ -1,6 +1,8 @@
 import 'package:resurge2/data/menu_items.dart';
 import 'package:resurge2/model/menu_item.dart';
+import 'package:resurge2/page/help.dart';
 import 'package:resurge2/page/jobs.dart';
+import 'package:resurge2/page/login.dart';
 import 'package:resurge2/page/mentorship.dart';
 import 'package:resurge2/page/messaging.dart';
 import 'package:resurge2/page/personal.dart';
@@ -106,6 +108,10 @@ class NavigationDrawerWidget extends StatelessWidget {
         break;
       case 6:
         navigateTo(UserSupportPage());
+      case 7:
+        navigateTo(Help());
+      case 8:
+        navigateTo(LoginPage());
     }
   }
 
