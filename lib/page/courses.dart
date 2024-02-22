@@ -20,6 +20,27 @@ class _CoursePageState extends State<CoursePage> {
     'Course 3',
     'Course 4'
   ];
+  List<String> newCourses = ['New Course 1', 'New Course 2', 'New Course 3', 'New Course 4'];
+
+void _showCourseDetails(String courseName) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(courseName),
+          content: Text('Details of the course go here.'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('Close'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,24 +76,32 @@ class _CoursePageState extends State<CoursePage> {
             ),
             SizedBox(height: 16.0),
             Text('Popular Courses:'),
-            Expanded(
+            Container(
+              height: 160.0,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: popularCourses.length,
                 itemBuilder: (context, index) {
-                  return Card(
-                    margin: EdgeInsets.all(8.0),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(popularCourses[index]),
-                          SizedBox(height: 8.0),
-                          // Add more details or information about the course
-                          Text('Description or details'),
-                          // Add more widgets as needed
-                        ],
+                  return GestureDetector(
+                    onTap: () {
+                      _showCourseDetails(popularCourses[index]);
+                    },
+                    child: Card(
+                      margin: EdgeInsets.all(8.0),
+                      child: SizedBox(
+                        width: 200.0,
+                        height: 120.0,
+                        child: Padding(
+                          padding: const EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(popularCourses[index]),
+                              SizedBox(height: 8.0),
+                              Text('Description or details'),
+                            ],
+                          ),
+                        ),
                       ),
                     ),
                   );
@@ -80,11 +109,26 @@ class _CoursePageState extends State<CoursePage> {
               ),
             ),
             SizedBox(height: 16.0),
-            ElevatedButton(
-              onPressed: () {
-                // Handle "More Courses" button press
-              },
-              child: Text('More Courses'),
+            Text('New Courses:'),
+            Expanded(
+              child: ListView.builder(
+                itemCount: newCourses.length,
+                itemBuilder: (context, index) {
+                  return GestureDetector(
+                    onTap: () {
+                      _showCourseDetails(newCourses[index]);
+                    },
+                    child: Card(
+                      margin: EdgeInsets.all(8.0),
+                      child: ListTile(
+                        title: Text(newCourses[index]),
+                        subtitle: Text('Description or details'),
+                        // Add more widgets as needed
+                      ),
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
