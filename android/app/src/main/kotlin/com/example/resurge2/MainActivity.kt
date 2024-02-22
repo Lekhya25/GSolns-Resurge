@@ -1,4 +1,4 @@
-package com.example.gsol
+package com.example.resurge2
 
 import io.flutter.embedding.android.FlutterActivity
 
