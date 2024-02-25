@@ -52,17 +52,22 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        "Resurge",
-                        style: GoogleFonts.playfairDisplay(
-                          fontSize: 50,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
-                        ),
+                      Image.asset(
+                        'assets/images/App_logo-_Long-removebg-preview.png', // Replace with the actual path to your image
+                        height: 200, // Adjust the height as needed
+                        width: 400, // Adjust the width as needed
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        "Uniting for a sustainable world",
+                        "Empowering Lives",
+                        style: GoogleFonts.playfairDisplay(
+                          fontSize: 20,
+                          fontWeight: FontWeight.normal,
+                          color: Colors.black,
+                        ),
+                      ),
+                       Text(
+                        "Transforming Futures",
                         style: GoogleFonts.playfairDisplay(
                           fontSize: 20,
                           fontWeight: FontWeight.normal,
