@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class Help extends StatelessWidget {
-  final String youtubeVideoUrl = "https://www.youtube.com/";
-  final String googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdUaeR7r7z8QCOJzep3vSx1dD75jRjTRcFiSia0Ag2VESkOAQ/viewform";
+  final String youtubeVideoUrl = "https://www.youtube.com/watch?v=pRP6oSLV9kQ&t=2s";
+  final String googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSerov8ns7JE8uVt3pf9QnOJLBC2QdwSmqjx8n1lb--S1mekZA/viewform?usp=sf_link";
   final String feedbackEmail = "feedback@resurgeapp.org";
 
   @override
