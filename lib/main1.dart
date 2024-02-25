@@ -4,7 +4,6 @@ import 'package:resurge2/widgets/menubar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:resurge2/data/courses_data.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,17 +43,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  List<Course> enrolledCourses = [];
-
-  @override
-  void initState() {
-    super.initState();
-    // Filter the courses with status "Currently Enrolled"
-    enrolledCourses = allCourses
-        .where((course) => course.enrollment == 'Currently Enrolled')
-        .toList();
-  }
-
   @override
   Widget build(BuildContext context) => Scaffold(
         drawer: NavigationDrawerWidget(),
@@ -63,8 +51,7 @@ class _MainPageState extends State<MainPage> {
           title: Text(MyApp.title),
           centerTitle: true,
         ),
-        body: SingleChildScrollView( 
-        child: Padding(
+        body: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -78,20 +65,21 @@ class _MainPageState extends State<MainPage> {
               ),
               SizedBox(height: 20),
               Text(
-                'Enrolled Courses:',
+                'Continue your courses:',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(height: 10),
-              // Displaying only enrolled courses
-              for (var course in enrolledCourses)
-                CourseCard(
-                  imageUrl: course.imageUrl,
-                  courseName: course.name,
-                  instructor: course.instructor,
-                ),
+              CourseCard(
+                courseName: 'Course 1',
+                instructor: 'Instructor 1',
+              ),
+              CourseCard(
+                courseName: 'Course 2',
+                instructor: 'Instructor 2',
+              ),
               SizedBox(height: 20),
               Text(
                 'Recommended Jobs:',
@@ -101,41 +89,33 @@ class _MainPageState extends State<MainPage> {
                 ),
               ),
               SizedBox(height: 10),
-              GridView.count(
-                  shrinkWrap: true,
+              Expanded(
+                child: GridView.count(
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
-                  children: [
-                    JobCard(
-                      //logoUrl: 'assets/images/logo1.png',
-                      jobTitle: 'Digital Literacy Trainer',
-                      company: 'TechEmpower Learning Solutions',
+                  children: List.generate(
+                    4,
+                    (index) => JobCard(
+                      jobTitle: 'Job ${index + 1}',
+                      company: 'Company ${index + 1}',
                     ),
-                    JobCard(
-                      //logoUrl: 'assets/images/logo4.png',
-                      jobTitle: 'Artisan-Handicrafted Goods',
-                      company: 'CraftArt Studios',
-                    ),
-                  ],
-                ), 
+                  ),
+                ),
+              ),
             ],
-          
           ),
         ),
-        )
-    );
+      );
 }
 
 class CourseCard extends StatelessWidget {
   final String courseName;
   final String instructor;
-  final String imageUrl;
 
   CourseCard({
     required this.courseName,
     required this.instructor,
-    required this.imageUrl,
   });
 
   @override
@@ -147,12 +127,6 @@ class CourseCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.network(
-              imageUrl,
-              height: 80.0, // Adjust height as needed
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),
             Text(
               courseName,
               style: TextStyle(
@@ -175,12 +149,10 @@ class CourseCard extends StatelessWidget {
 class JobCard extends StatelessWidget {
   final String jobTitle;
   final String company;
-  //final String logoUrl;
 
   JobCard({
     required this.jobTitle,
     required this.company,
-    //required this.logoUrl,
   });
 
   @override
@@ -189,18 +161,9 @@ class JobCard extends StatelessWidget {
       elevation: 3,
       child: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-            /*Image.network(
-              logoUrl,
-              height: 80.0, // Adjust height as needed
-              width: double.infinity,
-              fit: BoxFit.cover,
-            ),*/
-            SizedBox(height: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
             Text(
               jobTitle,
               style: TextStyle(
@@ -216,7 +179,6 @@ class JobCard extends StatelessWidget {
           ],
         ),
       ),
-    ),
-   );
+    );
   }
 }

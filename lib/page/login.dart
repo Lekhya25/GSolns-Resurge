@@ -199,7 +199,7 @@ class _LoginPageState extends State<LoginPage> {
 
                       // Google Icon
                       Image.asset(
-                        'images/google.png', // Replace with the path to your Google icon asset
+                        'assets/images/google.png', // Replace with the path to your Google icon asset
                         width: 40,
                         height: 40,
                       ),

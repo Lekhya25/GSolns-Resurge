@@ -8,7 +8,7 @@ class JobPage extends StatelessWidget {
       location: 'Kolkata, West Bengal',
       salary: 'INR 4,00,000-5,00,000 per annum',
       description: 'Train individuals in basic digital skills, including computer usage, internet navigation, and email communication. Support learners in gaining essential digital literacy for personal and professional development.',
-      logoUrl: 'assets/images/logo1.png',
+      logoUrl: 'assets/images/company.png',
     ),
     Job(
       company: 'CommunityConnect Services',
@@ -16,7 +16,7 @@ class JobPage extends StatelessWidget {
       location: 'Hyderabad,Telangana',
       salary: 'INR 3,00,000-4,00,000 per annum',
       description: 'Assist in crafting communication strategies for social causes. Manage social media platforms, create content, and engage with online communities to raise awareness about human trafficking issues.',
-      logoUrl: 'assets/images/logo2.png',
+      logoUrl: 'assets/images/company.png',
     ),
     Job(
       company: 'SkillBridge Education',
@@ -24,7 +24,7 @@ class JobPage extends StatelessWidget {
       location: 'Bengaluru, Karnataka',
       salary: 'INR 4,50,000-5,50,000 per annum',
       description: 'Teach practical communication skills, including conversational English and writing, to individuals aiming to enhance their employability. Focus on building confidence and interpersonal skills.',
-      logoUrl: 'assets/images/logo3.png',
+      logoUrl: 'assets/images/company.png',
     ),
     Job(
       company: 'CraftArt Studios',
@@ -32,7 +32,7 @@ class JobPage extends StatelessWidget {
       location: 'Jaipur, Rajasthan',
       salary: 'INR 3,00,000-4,00,000 per annum',
       description: 'Create handcrafted art and crafts, contributing to the production of unique and marketable items. Support economic empowerment through skill-based employment.',
-      logoUrl: 'assets/images/logo4.png',
+      logoUrl: 'assets/images/company.png',
     ),
     Job(
       company: 'GreenHarbor Sustainable Living',
@@ -40,7 +40,7 @@ class JobPage extends StatelessWidget {
       location: 'Chennai, Tamil Nadu',
       salary: 'INR 3,00,000-4,00,000 per annum',
       description: 'Facilitate community gardening programs, teaching sustainable gardening practices. Empower survivors with skills in urban gardening and contribute to environmental sustainability.',
-      logoUrl: 'assets/images/logo5.png',
+      logoUrl: 'assets/images/company.png',
     ),
   ];
 
@@ -71,9 +71,7 @@ class JobPage extends StatelessWidget {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: JobCard(
-                    job: jobs[index],
-                  ),
+                  child: JobCard(job: jobs[index]),
                 );
               },
             ),
@@ -107,63 +105,10 @@ class JobCard extends StatelessWidget {
 
   JobCard({required this.job});
 
-   void _showJobDetails(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(
-            'Job Details',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          content: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Company: ${job.company}',
-                  style: TextStyle(fontSize: 16),
-                ),
-                Text(
-                  'Title: ${job.title}',
-                  style: TextStyle(fontSize: 16),
-                ),
-                Text(
-                  'Location: ${job.location}',
-                  style: TextStyle(fontSize: 16),
-                ),
-                Text(
-                  'Salary: ${job.salary}',
-                  style: TextStyle(fontSize: 16),
-                ),
-                Text(
-                  'Description: ${job.description}',
-                  style: TextStyle(fontSize: 16),
-                ),
-              ],
-            ),
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context); // Close the dialog
-              },
-              child: Text('Close'),
-            ),
-          ],
-        );
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    int index = JobPage().jobs.indexOf(job);
     return Card(
       elevation: 3,
-      color: index % 2 == 0 ? Colors.grey[200] : Colors.white, // Set alternate colors
       child: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Column(
@@ -205,7 +150,7 @@ class JobCard extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () {
-                    _showJobDetails(context); // Show job details pop-up
+                    // On "Know More" button pressed
                   },
                   child: Text(
                     'Know More',
