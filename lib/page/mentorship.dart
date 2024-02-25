@@ -7,7 +7,7 @@ class MentorshipPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Mentorship Programs'),
         centerTitle: true,
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.blue[900],
       ),
       body: MentorshipList(),
       floatingActionButton: FloatingActionButton(

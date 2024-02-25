@@ -6,7 +6,7 @@ class MessagingPage extends StatelessWidget {
         appBar: AppBar(
           title: Text('Messaging Arena'),
           centerTitle: true,
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.blue[900],
         ),
       );
 }
